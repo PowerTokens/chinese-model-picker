@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chinese AI Model Picker: Compare GLM, Qwen, MiniMax, DeepSeek, Seed and MiMo</title>
+<meta name="description" content="Compare Chinese AI models (GLM, Qwen, MiniMax, DeepSeek V3.2, ByteDance Seed, Xiaomi MiMo) by context length, tool calling, reasoning, input types and price per 1M tokens, then estimate your monthly API cost.">
+<link rel="canonical" href="https://powertokens.github.io/chinese-model-picker/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chinese AI Model Picker: GLM, Qwen, MiniMax, DeepSeek, Seed, MiMo">
+<meta property="og:description" content="Specs, PowerTokens pricing and a cost calculator for Chinese AI models, in one table.">
+<meta property="og:url" content="https://powertokens.github.io/chinese-model-picker/">
+<meta property="og:image" content="https://powertokens.github.io/chinese-model-picker/docs/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234f46e5'/%3E%3Cpath d='M9 22V10h7a4 4 0 010 8h-7' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  (function () {
+    var t = localStorage.getItem("theme");
+    if (t) document.documentElement.dataset.theme = t;
+  })();
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Which Chinese AI model is best for coding?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No single model is best for every codebase. In this table, the models whose models.dev descriptions mention coding include Qwen3 Coder Plus, Qwen3 Max and the Qwen3.7 and Qwen3.8 Plus/Max models, GLM-4.5 Air, GLM-4.7 and the GLM-5.x series, MiniMax M2.5, M2.7 and M3, and Xiaomi MiMo-V2.5 and V2.5-Pro. Use the Coding filter to compare their context length, tool calling and price, then test the shortlist on your own code."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I use Qwen or GLM outside China?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Qwen is available internationally through Alibaba Cloud Model Studio and GLM through Z.ai; the mainland sites (Bailian, BigModel) may require a Chinese phone number, real-name verification or local payment. You can also call both through an OpenAI-compatible gateway such as PowerTokens, which serves every model in this table from https://api.powertokens.ai/v1."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is there one API key for GLM, Qwen, MiniMax and DeepSeek V3.2?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. A PowerTokens API key works for all models listed here, including GLM, Qwen, MiniMax, DeepSeek V3.2, ByteDance Seed and Xiaomi MiMo, and you switch models by changing the model string. On the official platforms each lab is a separate account, key and balance."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much does it cost to use these models?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "You pay per token, priced in USD per 1M input and output tokens, and some models charge a higher rate for long prompts. Enter your monthly token volume in the cost calculator above to estimate the cost per model, and check powertokens.ai/pricing for current rates."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Are these models OpenAI-compatible?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Through PowerTokens, yes: every model here uses the OpenAI Chat Completions format, so the official OpenAI Python or Node SDK works with base_url set to https://api.powertokens.ai/v1. Click Use on any row to get a ready-to-run snippet."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Where do the specs and prices come from?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Context length, max output, tool calling, reasoning and input types come from the open models.dev catalog, and prices come from the PowerTokens pricing page. Both are regenerated into data/models.json by scripts/fetch_prices.py; the check date is shown in the footer."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "Chinese Model Picker",
+ "url": "https://powertokens.github.io/chinese-model-picker/",
+ "applicationCategory": "DeveloperApplication",
+ "operatingSystem": "Any",
+ "description": "Compare Chinese AI models (GLM, Qwen, MiniMax, Seed, MiMo, DeepSeek V3.2) on context length, tool calling, reasoning, input types and PowerTokens price per 1M tokens, with a monthly cost calculator.",
+ "creator": {
+  "@type": "Organization",
+  "name": "PowerTokens",
+  "url": "https://powertokens.ai"
+ }
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="./">
+      <span class="logo" aria-hidden="true">P</span>
+      <span>Chinese Model Picker</span>
+    </a>
+    <nav class="topnav">
+      <a href="#models">Models</a>
+      <a href="#calculator">Cost</a>
+      <a href="#access">Access</a>
+      <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle dark mode" title="Toggle light/dark">
+        <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="hero-text">
+      <p class="eyebrow">Free tool · <span id="modelCount">30</span> models · updated <span class="js-date">2026-10-03</span></p>
+      <h1>Pick the right Chinese LLM for your app</h1>
+      <p class="lede">Compare Qwen, GLM, DeepSeek, MiniMax, Seed and MiMo models on context length, tool calling, reasoning and input types. Filter by what you need, then estimate your monthly cost.</p>
+    </div>
+    <div class="why-box">
+    <h2 class="why-title">Why compare here</h2>
+    <ul class="why">
+      <li><strong>One table, six families.</strong> Specs come from <a href="https://github.com/anomalyco/models.dev" target="_blank" rel="noopener">models.dev</a>, an open model catalog, so families are compared on the same fields.</li>
+      <li><strong>Filter by what matters.</strong> Tool calling, reasoning, 1M-token context, image/video input, or a "best for" tag.</li>
+      <li><strong>Plan your budget.</strong> Enter your monthly tokens to estimate cost per model, including context-based price tiers.</li>
+    </ul>
+    </div>
+  </section>
+
+  <section id="models" class="wrap card">
+    <div class="section-head">
+      <h2>Models</h2>
+      <p class="muted small"><span class="desk-only">Click a column header to sort. </span>Prices are USD per 1M tokens on PowerTokens (base tier).</p>
+    </div>
+
+    <div class="filters" role="search">
+      <label class="search">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="search" type="search" placeholder="Search models, e.g. qwen, coder, flash" autocomplete="off" aria-label="Search models">
+      </label>
+      <div class="chip-row" id="familyChips" aria-label="Filter by family"></div>
+      <div class="chip-row" id="featureChips" aria-label="Filter by feature">
+        <button type="button" class="chip" data-feature="tool_call" aria-pressed="false">Tool calling</button>
+        <button type="button" class="chip" data-feature="reasoning" aria-pressed="false">Reasoning</button>
+        <button type="button" class="chip" data-feature="long" aria-pressed="false">≥ 1M context</button>
+        <button type="button" class="chip" data-feature="multimodal" aria-pressed="false">Image/video input</button>
+        <button type="button" class="chip" data-feature="open" aria-pressed="false">Open weights</button>
+      </div>
+      <div class="chip-row" id="tagChips" aria-label="Filter by best-for tag"></div>
+      <div class="result-bar">
+        <span id="resultCount" class="muted small"></span>
+        <label class="sort-mobile small">Sort
+          <select id="sortSelect">
+            <option value="family:1">Family</option>
+            <option value="name:1">Name</option>
+            <option value="pt_input:1">Price: low to high</option>
+            <option value="pt_input:-1">Price: high to low</option>
+            <option value="context:-1">Context: largest</option>
+            <option value="max_output:-1">Max output: largest</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table id="modelTable">
+        <thead>
+          <tr>
+            <th data-sort="name" scope="col">Model</th>
+            <th data-sort="family" scope="col">Family / lab</th>
+            <th data-sort="context" scope="col" class="num">Context</th>
+            <th data-sort="max_output" scope="col" class="num">Max output</th>
+            <th data-sort="tool_call" scope="col" class="c">Tools</th>
+            <th data-sort="reasoning" scope="col" class="c">Reasoning</th>
+            <th scope="col">Input</th>
+            <th scope="col">Best for</th>
+            <th data-sort="pt_input" scope="col" class="num">PowerTokens $/1M<br><span class="sub">input / output</span></th>
+            <th scope="col" class="c">On<br>PowerTokens</th>
+          </tr>
+        </thead>
+        <tbody id="modelRows"></tbody>
+      </table>
+      <p id="emptyState" class="empty" hidden>No models match these filters. <button type="button" class="linkish" id="resetFilters">Reset filters</button></p>
+    </div>
+    <p class="muted small note">Context, max output, tools, reasoning and input types are the lab's model specs (via models.dev). Features exposed through a given API, such as image input, can differ, so check the model's docs page. "Best for" tags are generated from the catalog descriptions, context size and price; see <a href="#method">method</a>.</p>
+  </section>
+
+  <section id="calculator" class="wrap card">
+    <div class="section-head">
+      <h2>Monthly cost estimate</h2>
+      <p class="muted small">Estimated cost on PowerTokens for the models currently shown in the table above.</p>
+    </div>
+    <form class="calc" id="calcForm" onsubmit="return false">
+      <label>Input tokens / month
+        <span class="unit-input"><input id="inTok" type="number" min="0" step="1" value="50" inputmode="decimal"><span>M</span></span>
+      </label>
+      <label>Output tokens / month
+        <span class="unit-input"><input id="outTok" type="number" min="0" step="1" value="10" inputmode="decimal"><span>M</span></span>
+      </label>
+      <label>Typical prompt size
+        <select id="promptSize">
+          <option value="8000">≤ 8K tokens</option>
+          <option value="32000" selected>≤ 32K tokens</option>
+          <option value="128000">≤ 128K tokens</option>
+          <option value="256000">≤ 256K tokens</option>
+          <option value="512000">≤ 512K tokens</option>
+          <option value="1000000">≤ 1M tokens</option>
+        </select>
+      </label>
+      <div class="presets" aria-label="Presets">
+        <span class="muted small">Presets:</span>
+        <button type="button" class="chip small" data-preset="5,1,8000">Side project</button>
+        <button type="button" class="chip small" data-preset="50,10,32000">Chat app</button>
+        <button type="button" class="chip small" data-preset="300,30,128000">Coding agent</button>
+      </div>
+    </form>
+    <ol id="calcResults" class="bars"></ol>
+    <button type="button" class="linkish" id="calcMore" hidden>Show all</button>
+    <p class="muted small note">Some models price by prompt length (tiers). The estimate uses the tier that matches your typical prompt size. Models whose context is smaller than that size are skipped. Cached-input pricing, taxes and rate limits are not included.</p>
+  </section>
+
+  <section id="access" class="wrap card">
+    <div class="section-head">
+      <h2>Access from outside China</h2>
+    </div>
+    <div class="access-grid">
+      <div class="access-col">
+        <h3>Official platforms</h3>
+        <p>Most labs run an international site in English, but signup and payment rules differ by provider. The mainland China sites (Bailian, BigModel, Volcengine) are built for users in China and may need a Chinese phone number, real-name verification or local payment such as Alipay or WeChat Pay. International sites may restrict card types, prepaid cards or 3DS. Each lab is a separate account, key and balance.</p>
+        <ul class="official">
+          <li><a href="https://www.alibabacloud.com/en/product/modelstudio" target="_blank" rel="noopener">Alibaba Cloud Model Studio</a> <span class="muted">Qwen</span></li>
+          <li><a href="https://z.ai/model-api" target="_blank" rel="noopener">Z.ai</a> <span class="muted">GLM</span></li>
+          <li><a href="https://platform.deepseek.com" target="_blank" rel="noopener">DeepSeek Platform</a> <span class="muted">DeepSeek</span></li>
+          <li><a href="https://platform.minimax.io" target="_blank" rel="noopener">MiniMax</a> <span class="muted">MiniMax</span></li>
+          <li><a href="https://www.byteplus.com/en/product/modelark" target="_blank" rel="noopener">BytePlus ModelArk</a> <span class="muted">Seed</span></li>
+          <li><a href="https://platform.xiaomimimo.com" target="_blank" rel="noopener">Xiaomi MiMo</a> <span class="muted">MiMo</span></li>
+        </ul>
+        <p class="small"><a href="https://github.com/PowerTokens/awesome-chinese-model-apis#using-chinese-model-apis-from-outside-china" target="_blank" rel="noopener">Phone, payment and region notes per provider →</a></p>
+      </div>
+      <div class="access-col pt">
+        <h3>Through PowerTokens</h3>
+        <ul class="checks">
+          <li>One account and one OpenAI-compatible API key for every model in this table</li>
+          <li>Pay with a credit card or PayPal</li>
+          <li>Switch models by changing the <code>model</code> string; no new SDK</li>
+          <li>English docs and per-model API reference</li>
+        </ul>
+        <div class="snippet">
+          <div class="snippet-head">
+            <div class="tabs" role="tablist">
+              <button type="button" role="tab" class="tab" aria-selected="true" data-lang="python">Python</button>
+              <button type="button" role="tab" class="tab" aria-selected="false" data-lang="curl">curl</button>
+              <button type="button" role="tab" class="tab" aria-selected="false" data-lang="node">Node</button>
+            </div>
+            <button type="button" class="copy" id="copySnippet">Copy</button>
+          </div>
+          <pre><code id="snippet"></code></pre>
+        </div>
+        <p class="muted small">Tip: click <em>Use</em> on any row to put that model ID in the snippet.</p>
+        <a class="cta" id="ctaMain" href="https://powertokens.ai/?utm_source=github&amp;utm_medium=tool&amp;utm_campaign=model-compare" target="_blank" rel="noopener">Use all of these with one API key → PowerTokens</a>
+        <p class="small"><a href="https://docs.powertokens.ai" target="_blank" rel="noopener">Read the docs</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="method" class="wrap card method">
+    <h2>Method and sources</h2>
+    <ul>
+      <li><strong>Model list:</strong> text models in the <a href="https://docs.powertokens.ai/llms.txt" target="_blank" rel="noopener">PowerTokens docs index</a> that also have a published price.</li>
+      <li><strong>Prices:</strong> PowerTokens <a href="https://powertokens.ai/pricing" target="_blank" rel="noopener">pricing page</a>, USD per 1M tokens. The table shows the base tier; hover or tap <span class="tier-badge">tiered</span> for long-prompt rates.</li>
+      <li><strong>Specs:</strong> <a href="https://github.com/anomalyco/models.dev" target="_blank" rel="noopener">models.dev</a> lab model files (<code>models/&lt;lab&gt;/&lt;model&gt;.toml</code>), commit <code id="mdCommit"></code>.</li>
+      <li><strong>Best-for tags:</strong> <em>Coding</em> and <em>Agents</em> when the catalog description mentions them; <em>Long context</em> at ≥ 1M tokens; <em>Multimodal input</em> when the model accepts more than text; <em>Fast</em> for flash / turbo / highspeed / mini / air variants or descriptions that mention low latency; <em>Low cost</em> when output is ≤ $0.50 per 1M on PowerTokens.</li>
+      <li>Data is generated by <code>scripts/fetch_prices.py</code> into <code>data/models.json</code>. Found an error? Open an issue.</li>
+    </ul>
+  </section>
+  <section id="faq" class="wrap card faq">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+      <h3>Which Chinese AI model is best for coding?</h3>
+      <p>No single model is best for every codebase. In this table, the models whose models.dev descriptions mention coding include Qwen3 Coder Plus, Qwen3 Max and the Qwen3.7 and Qwen3.8 Plus/Max models, GLM-4.5 Air, GLM-4.7 and the GLM-5.x series, MiniMax M2.5, M2.7 and M3, and Xiaomi MiMo-V2.5 and V2.5-Pro. Use the <em>Coding</em> filter to compare their context length, tool calling and price, then test the shortlist on your own code.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I use Qwen or GLM outside China?</h3>
+      <p>Qwen is available internationally through Alibaba Cloud Model Studio and GLM through Z.ai; the mainland sites (Bailian, BigModel) may require a Chinese phone number, real-name verification or local payment. You can also call both through an OpenAI-compatible gateway such as PowerTokens, which serves every model in this table from <code>https://api.powertokens.ai/v1</code>.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is there one API key for GLM, Qwen, MiniMax and DeepSeek V3.2?</h3>
+      <p>Yes. A PowerTokens API key works for all models listed here, including GLM, Qwen, MiniMax, DeepSeek V3.2, ByteDance Seed and Xiaomi MiMo, and you switch models by changing the <code>model</code> string. On the official platforms each lab is a separate account, key and balance.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How much does it cost to use these models?</h3>
+      <p>You pay per token, priced in USD per 1M input and output tokens, and some models charge a higher rate for long prompts. Enter your monthly token volume in the <a href="#calculator">cost calculator</a> above to estimate the cost per model, and check <a href="https://powertokens.ai/pricing">powertokens.ai/pricing</a> for current rates.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are these models OpenAI-compatible?</h3>
+      <p>Through PowerTokens, yes: every model here uses the OpenAI Chat Completions format, so the official OpenAI Python or Node SDK works with <code>base_url</code> set to <code>https://api.powertokens.ai/v1</code>. Click <em>Use</em> on any row to get a ready-to-run snippet.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Where do the specs and prices come from?</h3>
+      <p>Context length, max output, tool calling, reasoning and input types come from the open <a href="https://github.com/anomalyco/models.dev">models.dev</a> catalog, and prices come from the PowerTokens pricing page. Both are regenerated into <code>data/models.json</code> by <code>scripts/fetch_prices.py</code>; the check date is shown in the footer.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p><strong>Data sources:</strong> PowerTokens prices checked <span class="js-date">2026-10-03</span> (<a href="https://powertokens.ai/pricing" target="_blank" rel="noopener">powertokens.ai/pricing</a>); model specs from <a href="https://github.com/anomalyco/models.dev" target="_blank" rel="noopener">models.dev</a> (checked <span class="js-date">2026-10-03</span>). Prices and specs change; verify on the official pages before you rely on them.</p>
+    <p>Built by <a href="https://powertokens.ai/?utm_source=github&amp;utm_medium=tool&amp;utm_campaign=model-compare" target="_blank" rel="noopener">PowerTokens</a> · <a href="https://github.com/PowerTokens" target="_blank" rel="noopener">GitHub</a> · <a href="https://discord.gg/JtgtRdhJVS" target="_blank" rel="noopener">Discord</a> · <a href="https://docs.powertokens.ai" target="_blank" rel="noopener">Docs</a></p>
+    <p class="muted small">Model names and trademarks belong to their owners. Not affiliated with or endorsed by the model developers.</p>
+  </div>
+</footer>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="assets/app.js"></script>
+</body>
+</html>

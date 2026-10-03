@@ -1,0 +1,53 @@
+name: Refresh model data
+
+on:
+  schedule:
+    - cron: "17 2 * * 1"   # Mondays 02:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Clone models.dev (specs source)
+        run: git clone --depth 1 https://github.com/anomalyco/models.dev "$RUNNER_TEMP/models.dev"
+
+      - name: Rebuild data/models.json
+        run: |
+          cp data/models.json "$RUNNER_TEMP/models.prev.json"
+          # stderr (list of docs models outside the allowlist) is kept out of the public log unless the script fails
+          python3 scripts/fetch_prices.py --models-dev "$RUNNER_TEMP/models.dev" 2> "$RUNNER_TEMP/fetch.err" \
+            || { cat "$RUNNER_TEMP/fetch.err"; exit 1; }
+
+      - name: Check for real changes (ignore date-only updates)
+        id: diff
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os
+          new = json.load(open("data/models.json"))
+          old = json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "models.prev.json")))
+          key = lambda d: (d.get("models"), d.get("gaps"))
+          print("changed=" + ("true" if key(new) != key(old) else "false"))
+          PY
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/models.json
+          git commit -m "data: weekly refresh of models.json"
+          git push

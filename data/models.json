@@ -1,0 +1,1245 @@
+{
+  "generated": "2026-10-03",
+  "currency": "USD",
+  "unit": "per 1M tokens",
+  "sources": {
+    "model_list": {
+      "url": "https://docs.powertokens.ai/llms.txt",
+      "checked": "2026-10-03"
+    },
+    "powertokens_prices": {
+      "url": "https://powertokens.ai/pricing",
+      "api": "https://powertokens.ai/api/model/pricing",
+      "checked": "2026-10-03"
+    },
+    "capabilities": {
+      "name": "models.dev",
+      "url": "https://github.com/anomalyco/models.dev",
+      "commit": "808e15e16abb81be1140cda4f62d78e9ad831522",
+      "commit_date": "2026-10-03",
+      "checked": "2026-10-03"
+    }
+  },
+  "gaps": [
+    "dola-seed-2-1-turbo-260628: listed in docs but not on the pricing endpoint; omitted",
+    "glm-5.3-flash: listed in docs but not on the pricing endpoint; omitted"
+  ],
+  "models": [
+    {
+      "id": "deepseek-v3-2-251201",
+      "name": "DeepSeek V3.2",
+      "lab": "DeepSeek",
+      "family": "DeepSeek",
+      "context": 128000,
+      "max_output": 64000,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2025-12-01",
+      "description": "Hybrid-reasoning DeepSeek model with thinking and non-thinking modes, sparse attention, and tool-use",
+      "models_dev_path": "models/deepseek/deepseek-v3.2.toml",
+      "pt_input": 0.28,
+      "pt_output": 0.42,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": 32000,
+          "input": 0.28,
+          "output": 0.42,
+          "cache_price": 0.056,
+          "cache_hit_price": 0
+        },
+        {
+          "from_tokens": 32000,
+          "to_tokens": 128000,
+          "input": 0.56,
+          "output": 0.84,
+          "cache_price": 0.056,
+          "cache_hit_price": 0
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/byteplus/deepseek-v3-2-251201",
+      "on_powertokens": true,
+      "tags": [
+        "Low cost"
+      ]
+    },
+    {
+      "id": "glm-4.5-air",
+      "name": "GLM-4.5 Air",
+      "lab": "Zhipu AI / Z.ai",
+      "family": "GLM",
+      "context": 131072,
+      "max_output": 98304,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2025-07-28",
+      "description": "Lighter GLM-4.5 variant for fast coding assistance and cheaper agents",
+      "models_dev_path": "models/zhipuai/glm-4.5-air.toml",
+      "pt_input": 0.2,
+      "pt_output": 1.1,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0.2,
+          "output": 1.1,
+          "cache_price": 0.03,
+          "cache_hit_price": 0.03
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/zhipu/glm-4.5-air",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Fast"
+      ]
+    },
+    {
+      "id": "glm-4.7",
+      "name": "GLM-4.7",
+      "lab": "Zhipu AI / Z.ai",
+      "family": "GLM",
+      "context": 204800,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2025-12-22",
+      "description": "Mature GLM model for dependable coding, reasoning, and structured agent tasks",
+      "models_dev_path": "models/zhipuai/glm-4.7.toml",
+      "pt_input": 0.6,
+      "pt_output": 2.2,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0.6,
+          "output": 2.2,
+          "cache_price": 0.11,
+          "cache_hit_price": 0.11
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/zhipu/glm-4.7",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents"
+      ]
+    },
+    {
+      "id": "glm-4.7-flash",
+      "name": "GLM-4.7 Flash",
+      "lab": "Zhipu AI / Z.ai",
+      "family": "GLM",
+      "context": 200000,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2026-01-19",
+      "description": "Budget GLM lane for fast coding help, routing, and everyday automation",
+      "models_dev_path": "models/zhipuai/glm-4.7-flash.toml",
+      "pt_input": 0,
+      "pt_output": 0,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0,
+          "output": 0,
+          "cache_price": 0,
+          "cache_hit_price": 0
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/zhipu/glm-4.7-flash",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Fast",
+        "Low cost"
+      ]
+    },
+    {
+      "id": "glm-5",
+      "name": "GLM-5",
+      "lab": "Zhipu AI / Z.ai",
+      "family": "GLM",
+      "context": 204800,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2026-02-12",
+      "description": "General GLM flagship for coding, analysis, and tool-heavy engineering workflows",
+      "models_dev_path": "models/zhipuai/glm-5.toml",
+      "pt_input": 0.97,
+      "pt_output": 3.104,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0.97,
+          "output": 3.104,
+          "cache_price": 0.194,
+          "cache_hit_price": 0.194
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/zhipu/glm-5",
+      "on_powertokens": true,
+      "tags": [
+        "Coding"
+      ]
+    },
+    {
+      "id": "glm-5-turbo",
+      "name": "GLM-5 Turbo",
+      "lab": "Zhipu AI / Z.ai",
+      "family": "GLM",
+      "context": 200000,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": false,
+      "release_date": "2026-03-16",
+      "description": "Faster GLM-5 lane for coding agents that need lower latency",
+      "models_dev_path": "models/zhipuai/glm-5-turbo.toml",
+      "pt_input": 1.164,
+      "pt_output": 3.88,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 1.164,
+          "output": 3.88,
+          "cache_price": 0.233,
+          "cache_hit_price": 0.233
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/zhipu/glm-5-turbo",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Fast"
+      ]
+    },
+    {
+      "id": "glm-5.1",
+      "name": "GLM-5.1",
+      "lab": "Zhipu AI / Z.ai",
+      "family": "GLM",
+      "context": 200000,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2026-04-07",
+      "description": "Strong GLM coding model for agentic engineering, terminals, and repository generation",
+      "models_dev_path": "models/zhipuai/glm-5.1.toml",
+      "pt_input": 1.4,
+      "pt_output": 4.4,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 1.4,
+          "output": 4.4,
+          "cache_price": 0.26,
+          "cache_hit_price": 0.26
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/zhipu/glm-5.1",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents"
+      ]
+    },
+    {
+      "id": "glm-5.2",
+      "name": "GLM-5.2",
+      "lab": "Zhipu AI / Z.ai",
+      "family": "GLM",
+      "context": 1000000,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2026-06-13",
+      "description": "Open flagship GLM for long-horizon coding agents and million-token context work",
+      "models_dev_path": "models/zhipuai/glm-5.2.toml",
+      "pt_input": 1.4,
+      "pt_output": 4.4,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 1.4,
+          "output": 4.4,
+          "cache_price": 0.26,
+          "cache_hit_price": 0.26
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/zhipu/glm-5.2",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Long context"
+      ]
+    },
+    {
+      "id": "glm-5.3",
+      "name": "GLM-5.3",
+      "lab": "Zhipu AI / Z.ai",
+      "family": "GLM",
+      "context": 1000000,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2026-08-14",
+      "description": "Flagship GLM model for long-horizon coding, agents, and complex project delivery",
+      "models_dev_path": "models/zhipuai/glm-5.3.toml",
+      "pt_input": 1.4,
+      "pt_output": 4.4,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 1.4,
+          "output": 4.4,
+          "cache_price": 0.26,
+          "cache_hit_price": 0.26
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/zhipu/glm-5.3",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Long context"
+      ]
+    },
+    {
+      "id": "MiniMax-M2.5",
+      "name": "MiniMax M2.5",
+      "lab": "MiniMax",
+      "family": "MiniMax",
+      "context": 204800,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2026-02-12",
+      "description": "Prior MiniMax coding model for agent workflows, office edits, and automation",
+      "models_dev_path": "models/minimax/MiniMax-M2.5.toml",
+      "pt_input": 0.285,
+      "pt_output": 1.14,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0.285,
+          "output": 1.14,
+          "cache_price": 0.029,
+          "cache_hit_price": 0.029
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/minimax/miniMax-M2.5",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents"
+      ]
+    },
+    {
+      "id": "MiniMax-M2.5-highspeed",
+      "name": "MiniMax M2.5 Highspeed",
+      "lab": "MiniMax",
+      "family": "MiniMax",
+      "context": 204800,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2026-02-13",
+      "description": "High-speed MiniMax model for low-latency coding and agent workflows",
+      "models_dev_path": "models/minimax/MiniMax-M2.5-highspeed.toml",
+      "pt_input": 0.57,
+      "pt_output": 2.28,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0.57,
+          "output": 2.28,
+          "cache_price": 0.029,
+          "cache_hit_price": 0.029
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/minimax/miniMax-M2.5-highspeed",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Fast"
+      ]
+    },
+    {
+      "id": "MiniMax-M2.7",
+      "name": "MiniMax M2.7",
+      "lab": "MiniMax",
+      "family": "MiniMax",
+      "context": 204800,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2026-03-18",
+      "description": "Open MiniMax flagship for coding agents, office automation, and complex environments",
+      "models_dev_path": "models/minimax/MiniMax-M2.7.toml",
+      "pt_input": 0.3,
+      "pt_output": 1.2,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0.3,
+          "output": 1.2,
+          "cache_price": 0.06,
+          "cache_hit_price": 0.06
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/minimax/miniMax-M2.7",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents"
+      ]
+    },
+    {
+      "id": "MiniMax-M2.7-highspeed",
+      "name": "MiniMax M2.7 Highspeed",
+      "lab": "MiniMax",
+      "family": "MiniMax",
+      "context": 204800,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2026-03-18",
+      "description": "Low-latency M2.7 variant for interactive coding plans and agent loops",
+      "models_dev_path": "models/minimax/MiniMax-M2.7-highspeed.toml",
+      "pt_input": 0.6,
+      "pt_output": 2.4,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0.6,
+          "output": 2.4,
+          "cache_price": 0.06,
+          "cache_hit_price": 0.06
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/minimax/miniMax-M2.7-highspeed",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Fast"
+      ]
+    },
+    {
+      "id": "MiniMax-M3",
+      "name": "MiniMax M3",
+      "lab": "MiniMax",
+      "family": "MiniMax",
+      "context": 1048576,
+      "max_output": 512000,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "open_weights": true,
+      "release_date": "2026-06-01",
+      "description": "MiniMax multimodal model for long-context coding, perception, and agent planning",
+      "models_dev_path": "models/minimax/MiniMax-M3.toml",
+      "pt_input": 0.6,
+      "pt_output": 2.4,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": 512000,
+          "input": 0.6,
+          "output": 2.4,
+          "cache_price": 0.12,
+          "cache_hit_price": 0.12
+        },
+        {
+          "from_tokens": 512000,
+          "to_tokens": null,
+          "input": 1.2,
+          "output": 4.8,
+          "cache_price": 0.24,
+          "cache_hit_price": 0.24
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/minimax/miniMax-M3",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Long context",
+        "Multimodal input"
+      ]
+    },
+    {
+      "id": "mimo-v2.5",
+      "name": "MiMo V2.5",
+      "lab": "Xiaomi",
+      "family": "MiMo",
+      "context": 1048576,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "open_weights": true,
+      "release_date": "2026-04-22",
+      "description": "Open MiMo model for multimodal coding agents and long-context automation",
+      "models_dev_path": "models/xiaomi/mimo-v2.5.toml",
+      "pt_input": 0.14,
+      "pt_output": 0.28,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0.14,
+          "output": 0.28,
+          "cache_price": 0.003,
+          "cache_hit_price": 0.003
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/mimo/mimo-v2.5",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Long context",
+        "Multimodal input",
+        "Low cost"
+      ]
+    },
+    {
+      "id": "mimo-v2.5-pro",
+      "name": "MiMo V2.5 Pro",
+      "lab": "Xiaomi",
+      "family": "MiMo",
+      "context": 1048576,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": true,
+      "release_date": "2026-04-22",
+      "description": "Stronger MiMo Pro tier for multimodal reasoning and coding-agent execution",
+      "models_dev_path": "models/xiaomi/mimo-v2.5-pro.toml",
+      "pt_input": 0.435,
+      "pt_output": 0.87,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0.435,
+          "output": 0.87,
+          "cache_price": 0.004,
+          "cache_hit_price": 0.004
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/mimo/mimo-v2.5-pro",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Long context"
+      ]
+    },
+    {
+      "id": "qwen3-coder-plus",
+      "name": "Qwen3 Coder Plus",
+      "lab": "Alibaba",
+      "family": "Qwen",
+      "context": 1048576,
+      "max_output": 65536,
+      "tool_call": true,
+      "reasoning": false,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": false,
+      "release_date": "2025-07-23",
+      "description": "Hosted Qwen coder for software agents, repo edits, and long-context code",
+      "models_dev_path": "models/alibaba/qwen3-coder-plus.toml",
+      "pt_input": 1,
+      "pt_output": 5,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": 32000,
+          "input": 1,
+          "output": 5,
+          "cache_price": 0.2,
+          "cache_hit_price": 0.1
+        },
+        {
+          "from_tokens": 32000,
+          "to_tokens": 128000,
+          "input": 1.8,
+          "output": 9,
+          "cache_price": 0.36,
+          "cache_hit_price": 0.18
+        },
+        {
+          "from_tokens": 128000,
+          "to_tokens": 256000,
+          "input": 3,
+          "output": 15,
+          "cache_price": 0.6,
+          "cache_hit_price": 0.3
+        },
+        {
+          "from_tokens": 256000,
+          "to_tokens": 1000000,
+          "input": 6,
+          "output": 60,
+          "cache_price": 1.2,
+          "cache_hit_price": 0.6
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/ali/qwen3-coder-plus",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Long context"
+      ]
+    },
+    {
+      "id": "qwen3-max",
+      "name": "Qwen3 Max",
+      "lab": "Alibaba",
+      "family": "Qwen",
+      "context": 262144,
+      "max_output": 65536,
+      "tool_call": true,
+      "reasoning": false,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": false,
+      "release_date": "2025-09-23",
+      "description": "Flagship Qwen3 model for coding agents, complex reasoning, and tool use",
+      "models_dev_path": "models/alibaba/qwen3-max.toml",
+      "pt_input": 1.14,
+      "pt_output": 5.7,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": 32000,
+          "input": 1.14,
+          "output": 5.7,
+          "cache_price": 0.228,
+          "cache_hit_price": 0.114
+        },
+        {
+          "from_tokens": 32000,
+          "to_tokens": 128000,
+          "input": 2.28,
+          "output": 11.4,
+          "cache_price": 0.456,
+          "cache_hit_price": 0.228
+        },
+        {
+          "from_tokens": 128000,
+          "to_tokens": 256000,
+          "input": 2.85,
+          "output": 14.25,
+          "cache_price": 0.57,
+          "cache_hit_price": 0.285
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/ali/qwen3-max",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents"
+      ]
+    },
+    {
+      "id": "qwen3.5-flash",
+      "name": "Qwen3.5 Flash",
+      "lab": "Alibaba",
+      "family": "Qwen",
+      "context": 1000000,
+      "max_output": 65536,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "open_weights": false,
+      "release_date": "2026-02-23",
+      "description": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+      "models_dev_path": "models/alibaba/qwen3.5-flash.toml",
+      "pt_input": 0.1,
+      "pt_output": 0.4,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0.1,
+          "output": 0.4,
+          "cache_price": 0,
+          "cache_hit_price": 0.01
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/ali/qwen3.5-flash",
+      "on_powertokens": true,
+      "tags": [
+        "Agents",
+        "Long context",
+        "Multimodal input",
+        "Fast",
+        "Low cost"
+      ]
+    },
+    {
+      "id": "qwen3.6-plus",
+      "name": "Qwen3.6 Plus",
+      "lab": "Alibaba",
+      "family": "Qwen",
+      "context": 1000000,
+      "max_output": 65536,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "open_weights": false,
+      "release_date": "2026-04-02",
+      "description": "Earlier Qwen multimodal workhorse for million-token agent and document tasks",
+      "models_dev_path": "models/alibaba/qwen3.6-plus.toml",
+      "pt_input": 0.475,
+      "pt_output": 2.85,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": 256000,
+          "input": 0.475,
+          "output": 2.85,
+          "cache_price": 0,
+          "cache_hit_price": 0.048
+        },
+        {
+          "from_tokens": 256000,
+          "to_tokens": 1000000,
+          "input": 1.9,
+          "output": 5.7,
+          "cache_price": 0,
+          "cache_hit_price": 0.19
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/ali/qwen3.6-plus",
+      "on_powertokens": true,
+      "tags": [
+        "Agents",
+        "Long context",
+        "Multimodal input"
+      ]
+    },
+    {
+      "id": "qwen3.7-max",
+      "name": "Qwen3.7 Max",
+      "lab": "Alibaba",
+      "family": "Qwen",
+      "context": 1000000,
+      "max_output": 65536,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": false,
+      "release_date": "2026-05-21",
+      "description": "Qwen frontier model tuned for agent frameworks, coding assistants, and long tasks",
+      "models_dev_path": "models/alibaba/qwen3.7-max.toml",
+      "pt_input": 2.5,
+      "pt_output": 7.5,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 2.5,
+          "output": 7.5,
+          "cache_price": 0.5,
+          "cache_hit_price": 0.25
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/ali/qwen3.7-max",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Long context"
+      ]
+    },
+    {
+      "id": "qwen3.7-plus",
+      "name": "Qwen3.7 Plus",
+      "lab": "Alibaba",
+      "family": "Qwen",
+      "context": 1000000,
+      "max_output": 64000,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "open_weights": false,
+      "release_date": "2026-06-02",
+      "description": "Multimodal Qwen workhorse for long-context agents, visual inputs, and coding",
+      "models_dev_path": "models/alibaba/qwen3.7-plus.toml",
+      "pt_input": 0.4,
+      "pt_output": 1.6,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": 256000,
+          "input": 0.4,
+          "output": 1.6,
+          "cache_price": 0.08,
+          "cache_hit_price": 0.04
+        },
+        {
+          "from_tokens": 256000,
+          "to_tokens": 1000000,
+          "input": 1.2,
+          "output": 4.8,
+          "cache_price": 0.24,
+          "cache_hit_price": 0.12
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/ali/qwen3.7-plus",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Long context",
+        "Multimodal input"
+      ]
+    },
+    {
+      "id": "qwen3.8-flash",
+      "name": "Qwen3.8 Flash",
+      "lab": "Alibaba",
+      "family": "Qwen",
+      "context": 1000000,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "open_weights": false,
+      "release_date": "2026-08-26",
+      "description": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+      "models_dev_path": "models/alibaba/qwen3.8-flash.toml",
+      "pt_input": 0.15,
+      "pt_output": 0.47,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0.15,
+          "output": 0.47,
+          "cache_price": 0.016,
+          "cache_hit_price": 0.016
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/ali/qwen3.8-flash",
+      "on_powertokens": true,
+      "tags": [
+        "Agents",
+        "Long context",
+        "Multimodal input",
+        "Fast",
+        "Low cost"
+      ]
+    },
+    {
+      "id": "qwen3.8-max",
+      "name": "Qwen3.8 Max",
+      "lab": "Alibaba",
+      "family": "Qwen",
+      "context": 1000000,
+      "max_output": 131072,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text",
+        "image",
+        "video",
+        "pdf"
+      ],
+      "open_weights": false,
+      "release_date": "2026-08-03",
+      "description": "2.4-trillion-parameter MoE flagship for coding, professional work, multimodal understanding, and long-horizon agentic workflows",
+      "models_dev_path": "models/alibaba/qwen3.8-max.toml",
+      "pt_input": 2,
+      "pt_output": 6,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 2,
+          "output": 6,
+          "cache_price": 0.25,
+          "cache_hit_price": 0.17
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/ali/qwen3.8-max",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Agents",
+        "Long context",
+        "Multimodal input"
+      ]
+    },
+    {
+      "id": "seed-1-6-250915",
+      "name": "Seed 1.6",
+      "lab": "ByteDance",
+      "family": "Seed",
+      "context": 256000,
+      "max_output": 64000,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text"
+      ],
+      "open_weights": false,
+      "release_date": "2025-10-15",
+      "description": "ByteDance Seed model for long-context reasoning, instruction following, and tool-assisted tasks",
+      "models_dev_path": "models/bytedance-seed/seed-1-6.toml",
+      "pt_input": 0.238,
+      "pt_output": 1.9,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": 128000,
+          "input": 0.238,
+          "output": 1.9,
+          "cache_price": 0.05,
+          "cache_hit_price": 0
+        },
+        {
+          "from_tokens": 128000,
+          "to_tokens": 256000,
+          "input": 0.475,
+          "output": 3.8,
+          "cache_price": 0.05,
+          "cache_hit_price": 0
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/byteplus/seed-1-6-250915",
+      "on_powertokens": true,
+      "tags": []
+    },
+    {
+      "id": "seed-1-6-flash-250715",
+      "name": "Seed 1.6 Flash",
+      "lab": "ByteDance",
+      "family": "Seed",
+      "context": 256000,
+      "max_output": 32000,
+      "tool_call": true,
+      "reasoning": false,
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "open_weights": false,
+      "release_date": "2025-08-28",
+      "description": "Low-latency ByteDance Seed model for high-throughput chat, extraction, and lightweight tool use",
+      "models_dev_path": "models/bytedance-seed/seed-1-6-flash.toml",
+      "pt_input": 0.071,
+      "pt_output": 0.285,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": 128000,
+          "input": 0.071,
+          "output": 0.285,
+          "cache_price": 0.015,
+          "cache_hit_price": 0
+        },
+        {
+          "from_tokens": 128000,
+          "to_tokens": 256000,
+          "input": 0.095,
+          "output": 0.76,
+          "cache_price": 0.015,
+          "cache_hit_price": 0
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/byteplus/seed-1-6-flash-250715",
+      "on_powertokens": true,
+      "tags": [
+        "Multimodal input",
+        "Fast",
+        "Low cost"
+      ]
+    },
+    {
+      "id": "seed-1-8-251228",
+      "name": "Seed 1.8",
+      "lab": "ByteDance",
+      "family": "Seed",
+      "context": 256000,
+      "max_output": 64000,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "open_weights": false,
+      "release_date": "2025-12-28",
+      "description": "ByteDance Seed model for multimodal reasoning, long-context analysis, and agent workflows",
+      "models_dev_path": "models/bytedance-seed/seed-1-8.toml",
+      "pt_input": 0.238,
+      "pt_output": 1.9,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": 128000,
+          "input": 0.238,
+          "output": 1.9,
+          "cache_price": 0.05,
+          "cache_hit_price": 0
+        },
+        {
+          "from_tokens": 128000,
+          "to_tokens": 256000,
+          "input": 0.475,
+          "output": 3.8,
+          "cache_price": 0.05,
+          "cache_hit_price": 0
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/byteplus/seed-1-8-251228",
+      "on_powertokens": true,
+      "tags": [
+        "Agents",
+        "Multimodal input"
+      ]
+    },
+    {
+      "id": "seed-2-0-lite-260228",
+      "name": "Seed 2.0 Lite",
+      "lab": "ByteDance",
+      "family": "Seed",
+      "context": 256000,
+      "max_output": 32000,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "open_weights": false,
+      "release_date": "2026-02-14",
+      "description": "Cost-efficient ByteDance Seed 2.0 model for production chat, analysis, and structured generation",
+      "models_dev_path": "models/bytedance-seed/seed-2.0-lite.toml",
+      "pt_input": 0.238,
+      "pt_output": 1.9,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": 128000,
+          "input": 0.238,
+          "output": 1.9,
+          "cache_price": 0.05,
+          "cache_hit_price": 0
+        },
+        {
+          "from_tokens": 128000,
+          "to_tokens": 256000,
+          "input": 0.475,
+          "output": 3.8,
+          "cache_price": 0.1,
+          "cache_hit_price": 0
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/byteplus/seed-2-0-lite-260228",
+      "on_powertokens": true,
+      "tags": [
+        "Multimodal input"
+      ]
+    },
+    {
+      "id": "seed-2-0-mini-260215",
+      "name": "Seed 2.0 Mini",
+      "lab": "ByteDance",
+      "family": "Seed",
+      "context": 256000,
+      "max_output": 32000,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "open_weights": false,
+      "release_date": "2026-02-14",
+      "description": "Lightweight ByteDance Seed 2.0 model for low-latency multimodal reasoning and high-volume tasks",
+      "models_dev_path": "models/bytedance-seed/seed-2.0-mini.toml",
+      "pt_input": 0.095,
+      "pt_output": 0.38,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": 128000,
+          "input": 0.095,
+          "output": 0.38,
+          "cache_price": 0.02,
+          "cache_hit_price": 0
+        },
+        {
+          "from_tokens": 128000,
+          "to_tokens": 256000,
+          "input": 0.19,
+          "output": 0.76,
+          "cache_price": 0.04,
+          "cache_hit_price": 0
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/byteplus/seed-2-0-mini-260215",
+      "on_powertokens": true,
+      "tags": [
+        "Multimodal input",
+        "Fast",
+        "Low cost"
+      ]
+    },
+    {
+      "id": "seed-2-0-pro-260328",
+      "name": "Seed 2.0 Pro",
+      "lab": "ByteDance",
+      "family": "Seed",
+      "context": 256000,
+      "max_output": 128000,
+      "tool_call": true,
+      "reasoning": true,
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "open_weights": false,
+      "release_date": "2026-02-14",
+      "description": "Flagship ByteDance Seed 2.0 model for complex multimodal reasoning and long-horizon agent workflows",
+      "models_dev_path": "models/bytedance-seed/seed-2.0-pro.toml",
+      "pt_input": 0.475,
+      "pt_output": 2.85,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": 128000,
+          "input": 0.475,
+          "output": 2.85,
+          "cache_price": 0.1,
+          "cache_hit_price": 0
+        },
+        {
+          "from_tokens": 128000,
+          "to_tokens": 256000,
+          "input": 0.95,
+          "output": 5.7,
+          "cache_price": 0.2,
+          "cache_hit_price": 0
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/byteplus/seed-2-0-pro-260328",
+      "on_powertokens": true,
+      "tags": [
+        "Agents",
+        "Multimodal input"
+      ]
+    }
+  ]
+}
