@@ -2,6 +2,13 @@
   "use strict";
 
   var BASE_URL = "https://api.powertokens.ai/v1";
+  var PT_UTM = "utm_source=github&utm_medium=tool&utm_campaign=model-compare";
+  function withUtm(url) {
+    if (!url || /[?&]utm_/.test(url)) return url;
+    var hash = "", i = url.indexOf("#");
+    if (i >= 0) { hash = url.slice(i); url = url.slice(0, i); }
+    return url + (url.indexOf("?") >= 0 ? "&" : "?") + PT_UTM + hash;
+  }
   var FAMILY_COLORS = {
     DeepSeek: "#4d6bfe", GLM: "#0d9488", MiniMax: "#e11d48", MiMo: "#f97316", Qwen: "#7c3aed", Seed: "#0ea5e9"
   };
@@ -119,7 +126,7 @@
         '<td class="td-input" data-label="Input"><div class="mods">' + (mods || '<span class="no">n/a</span>') + "</div></td>" +
         '<td class="td-tags" data-label="Best for"><div class="tags">' + (tags || '<span class="no">–</span>') + "</div></td>" +
         '<td class="num td-price" data-label="PowerTokens $/1M in / out"><span class="price"><b>' + fmtPrice(m.pt_input) + '</b><span class="sep">/</span><b>' + fmtPrice(m.pt_output) + "</b></span>" + tierPopup(m) + "</td>" +
-        '<td class="c" data-label="On PowerTokens"><a class="on-pt" href="' + esc(m.pt_docs) + '" target="_blank" rel="noopener"><span class="yes">✓</span> Docs</a></td>' +
+        '<td class="c" data-label="On PowerTokens"><a class="on-pt" href="' + esc(withUtm(m.pt_docs)) + '" target="_blank" rel="noopener"><span class="yes">✓</span> Docs</a></td>' +
         "</tr>";
     }).join("");
     $("#modelRows").innerHTML = html;

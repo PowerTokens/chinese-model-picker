@@ -28,8 +28,8 @@ Writes `data/models.json`. Python 3.11+, standard library only, no API keys. A w
 
 | Field | Source |
 |---|---|
-| Model list | Text models in [docs.powertokens.ai/llms.txt](https://docs.powertokens.ai/llms.txt) that also have a published price |
-| Price (USD / 1M tokens, incl. prompt-length tiers) | [powertokens.ai/pricing](https://powertokens.ai/pricing) (public endpoint `POST /api/model/pricing`) |
+| Model list | Text models in [docs.powertokens.ai/llms.txt](https://docs.powertokens.ai/llms.txt?utm_source=github&utm_medium=tool&utm_campaign=model-compare) that also have a published price |
+| Price (USD / 1M tokens, incl. prompt-length tiers) | [powertokens.ai/pricing](https://powertokens.ai/pricing?utm_source=github&utm_medium=tool&utm_campaign=model-compare) (public endpoint `POST /api/model/pricing`) |
 | Context, max output, tool calling, reasoning, input modalities, open weights, description | [models.dev](https://github.com/anomalyco/models.dev) lab files `models/<lab>/<model>.toml` |
 | "Best for" tags | Derived in `scripts/fetch_prices.py` from the fields above (see the Method section on the page) |
 
@@ -47,7 +47,7 @@ Qwen is available internationally through Alibaba Cloud Model Studio and GLM thr
 Yes. A PowerTokens API key works for all models listed here, including GLM, Qwen, MiniMax, DeepSeek V3.2, ByteDance Seed and Xiaomi MiMo, and you switch models by changing the `model` string. On the official platforms each lab is a separate account, key and balance.
 
 **How much does it cost to use these models?**  
-You pay per token, priced in USD per 1M input and output tokens, and some models charge a higher rate for long prompts. Enter your monthly token volume in the [cost calculator](https://powertokens.github.io/chinese-model-picker/#calculator) to estimate the cost per model, and check [powertokens.ai/pricing](https://powertokens.ai/pricing) for current rates.
+You pay per token, priced in USD per 1M input and output tokens, and some models charge a higher rate for long prompts. Enter your monthly token volume in the [cost calculator](https://powertokens.github.io/chinese-model-picker/#calculator) to estimate the cost per model, and check [powertokens.ai/pricing](https://powertokens.ai/pricing?utm_source=github&utm_medium=tool&utm_campaign=model-compare) for current rates.
 
 **Are these models OpenAI-compatible?**  
 Through PowerTokens, yes: every model here uses the OpenAI Chat Completions format, so the official OpenAI Python or Node SDK works with `base_url` set to `https://api.powertokens.ai/v1`. Click *Use* on any row to get a ready-to-run snippet.
@@ -63,4 +63,4 @@ Context length, max output, tool calling, reasoning and input types come from th
 
 [MIT](LICENSE). Model names and trademarks belong to their owners.
 
-Created by [@uselesssoso](https://github.com/uselesssoso) for [PowerTokens](https://powertokens.ai).
+Created by [@uselesssoso](https://github.com/uselesssoso) for [PowerTokens](https://powertokens.ai/?utm_source=github&utm_medium=tool&utm_campaign=model-compare).
