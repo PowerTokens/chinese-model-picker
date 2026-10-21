@@ -49,6 +49,7 @@ LAB_MAP: dict[str, tuple[str, str, str]] = {
     "minimax-m2.7": ("MiniMax", "MiniMax", "minimax/MiniMax-M2.7"),
     "minimax-m2.7-highspeed": ("MiniMax", "MiniMax", "minimax/MiniMax-M2.7-highspeed"),
     "minimax-m3": ("MiniMax", "MiniMax", "minimax/MiniMax-M3"),
+    "minimax-m3.1-flash": ("MiniMax", "MiniMax", "minimax/MiniMax-M3.1-Flash-Preview"),
     "qwen3.5-flash": ("Alibaba", "Qwen", "alibaba/qwen3.5-flash"),
     "qwen3.6-plus": ("Alibaba", "Qwen", "alibaba/qwen3.6-plus"),
     "qwen3.7-plus": ("Alibaba", "Qwen", "alibaba/qwen3.7-plus"),
