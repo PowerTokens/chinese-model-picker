@@ -1,23 +1,23 @@
 {
-  "generated": "2026-10-21",
+  "generated": "2026-10-26",
   "currency": "USD",
   "unit": "per 1M tokens",
   "sources": {
     "model_list": {
       "url": "https://docs.powertokens.ai/llms.txt",
-      "checked": "2026-10-21"
+      "checked": "2026-10-26"
     },
     "powertokens_prices": {
       "url": "https://powertokens.ai/pricing",
       "api": "https://powertokens.ai/api/model/pricing",
-      "checked": "2026-10-21"
+      "checked": "2026-10-26"
     },
     "capabilities": {
       "name": "models.dev",
       "url": "https://github.com/anomalyco/models.dev",
-      "commit": "2281b5e2bf65d443215810cd6f26fdb41b8d7f23",
-      "commit_date": "2026-10-01",
-      "checked": "2026-10-21"
+      "commit": "3e81e67646528d907c9a5413888d6adfa1ccf647",
+      "commit_date": "2026-10-26",
+      "checked": "2026-10-26"
     }
   },
   "gaps": [
@@ -32,8 +32,8 @@
       "family": "DeepSeek",
       "context": 128000,
       "max_output": 64000,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -74,8 +74,8 @@
       "family": "GLM",
       "context": 131072,
       "max_output": 98304,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -110,8 +110,8 @@
       "family": "GLM",
       "context": 204800,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -145,8 +145,8 @@
       "family": "GLM",
       "context": 200000,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -181,8 +181,8 @@
       "family": "GLM",
       "context": 204800,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -215,8 +215,8 @@
       "family": "GLM",
       "context": 200000,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -251,8 +251,8 @@
       "family": "GLM",
       "context": 200000,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -286,8 +286,8 @@
       "family": "GLM",
       "context": 1000000,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -322,8 +322,8 @@
       "family": "GLM",
       "context": 1000000,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -358,13 +358,16 @@
       "family": "GLM",
       "context": 1000000,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text",
-        "image",
-        "video",
-        "pdf"
+        "image/jpeg",
+        "image/png",
+        "video/mp4",
+        "video/x-matroska",
+        "video/quicktime",
+        "application/pdf"
       ],
       "open_weights": true,
       "release_date": "2026-08-26",
@@ -400,8 +403,8 @@
       "family": "MiniMax",
       "context": 204800,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -435,8 +438,8 @@
       "family": "MiniMax",
       "context": 204800,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -471,8 +474,8 @@
       "family": "MiniMax",
       "context": 204800,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -506,8 +509,8 @@
       "family": "MiniMax",
       "context": 204800,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -542,12 +545,18 @@
       "family": "MiniMax",
       "context": 1048576,
       "max_output": 512000,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text",
-        "image",
-        "video"
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "image/webp",
+        "video/mp4",
+        "video/x-msvideo",
+        "video/quicktime",
+        "video/x-matroska"
       ],
       "open_weights": true,
       "release_date": "2026-06-01",
@@ -583,91 +592,14 @@
       ]
     },
     {
-      "id": "mimo-v2.5",
-      "name": "MiMo V2.5",
-      "lab": "Xiaomi",
-      "family": "MiMo",
-      "context": 1048576,
-      "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
-      "input_modalities": [
-        "text",
-        "image",
-        "audio",
-        "video"
-      ],
-      "open_weights": true,
-      "release_date": "2026-04-22",
-      "description": "Open MiMo model for multimodal coding agents and long-context automation",
-      "models_dev_path": "models/xiaomi/mimo-v2.5.toml",
-      "pt_input": 0.14,
-      "pt_output": 0.28,
-      "pt_tiers": [
-        {
-          "from_tokens": 0,
-          "to_tokens": null,
-          "input": 0.14,
-          "output": 0.28,
-          "cache_price": 0.003,
-          "cache_hit_price": 0.003
-        }
-      ],
-      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/mimo/mimo-v2.5",
-      "on_powertokens": true,
-      "tags": [
-        "Coding",
-        "Agents",
-        "Long context",
-        "Multimodal input",
-        "Low cost"
-      ]
-    },
-    {
-      "id": "mimo-v2.5-pro",
-      "name": "MiMo V2.5 Pro",
-      "lab": "Xiaomi",
-      "family": "MiMo",
-      "context": 1048576,
-      "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
-      "input_modalities": [
-        "text"
-      ],
-      "open_weights": true,
-      "release_date": "2026-04-22",
-      "description": "Stronger MiMo Pro tier for multimodal reasoning and coding-agent execution",
-      "models_dev_path": "models/xiaomi/mimo-v2.5-pro.toml",
-      "pt_input": 0.435,
-      "pt_output": 0.87,
-      "pt_tiers": [
-        {
-          "from_tokens": 0,
-          "to_tokens": null,
-          "input": 0.435,
-          "output": 0.87,
-          "cache_price": 0.004,
-          "cache_hit_price": 0.004
-        }
-      ],
-      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/mimo/mimo-v2.5-pro",
-      "on_powertokens": true,
-      "tags": [
-        "Coding",
-        "Agents",
-        "Long context"
-      ]
-    },
-    {
       "id": "qwen3-coder-plus",
       "name": "Qwen3 Coder Plus",
       "lab": "Alibaba",
       "family": "Qwen",
       "context": 1048576,
       "max_output": 65536,
-      "tool_call": true,
-      "reasoning": false,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -726,8 +658,8 @@
       "family": "Qwen",
       "context": 262144,
       "max_output": 65536,
-      "tool_call": true,
-      "reasoning": false,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -777,12 +709,22 @@
       "family": "Qwen",
       "context": 1000000,
       "max_output": 65536,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text",
-        "image",
-        "video"
+        "image/bmp",
+        "image/jpeg",
+        "image/png",
+        "image/tiff",
+        "image/webp",
+        "image/heic",
+        "video/mp4",
+        "video/x-msvideo",
+        "video/x-matroska",
+        "video/quicktime",
+        "video/x-flv",
+        "video/x-ms-wmv"
       ],
       "open_weights": false,
       "release_date": "2026-02-23",
@@ -817,12 +759,22 @@
       "family": "Qwen",
       "context": 1000000,
       "max_output": 65536,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text",
-        "image",
-        "video"
+        "image/bmp",
+        "image/jpeg",
+        "image/png",
+        "image/tiff",
+        "image/webp",
+        "image/heic",
+        "video/mp4",
+        "video/x-msvideo",
+        "video/x-matroska",
+        "video/quicktime",
+        "video/x-flv",
+        "video/x-ms-wmv"
       ],
       "open_weights": false,
       "release_date": "2026-04-02",
@@ -862,9 +814,9 @@
       "lab": "Alibaba",
       "family": "Qwen",
       "context": 1000000,
-      "max_output": 65536,
-      "tool_call": true,
-      "reasoning": true,
+      "max_output": 131072,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text"
       ],
@@ -899,12 +851,22 @@
       "family": "Qwen",
       "context": 1000000,
       "max_output": 64000,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text",
-        "image",
-        "video"
+        "image/bmp",
+        "image/jpeg",
+        "image/png",
+        "image/tiff",
+        "image/webp",
+        "image/heic",
+        "video/mp4",
+        "video/x-msvideo",
+        "video/x-matroska",
+        "video/quicktime",
+        "video/x-flv",
+        "video/x-ms-wmv"
       ],
       "open_weights": false,
       "release_date": "2026-06-02",
@@ -946,12 +908,22 @@
       "family": "Qwen",
       "context": 1000000,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text",
-        "image",
-        "video"
+        "image/bmp",
+        "image/jpeg",
+        "image/png",
+        "image/tiff",
+        "image/webp",
+        "image/heic",
+        "video/mp4",
+        "video/x-msvideo",
+        "video/x-matroska",
+        "video/quicktime",
+        "video/x-flv",
+        "video/x-ms-wmv"
       ],
       "open_weights": false,
       "release_date": "2026-08-26",
@@ -986,13 +958,23 @@
       "family": "Qwen",
       "context": 1000000,
       "max_output": 131072,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text",
-        "image",
-        "video",
-        "pdf"
+        "image/bmp",
+        "image/jpeg",
+        "image/png",
+        "image/tiff",
+        "image/webp",
+        "image/heic",
+        "video/mp4",
+        "video/x-msvideo",
+        "video/x-matroska",
+        "video/quicktime",
+        "video/x-flv",
+        "video/x-ms-wmv",
+        "application/pdf"
       ],
       "open_weights": false,
       "release_date": "2026-08-03",
@@ -1026,10 +1008,24 @@
       "family": "Seed",
       "context": 256000,
       "max_output": 64000,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
-        "text"
+        "text",
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "image/webp",
+        "image/bmp",
+        "image/tiff",
+        "image/x-icon",
+        "image/x-icns",
+        "image/sgi",
+        "image/jp2",
+        "image/heic",
+        "video/mp4",
+        "video/x-msvideo",
+        "video/quicktime"
       ],
       "open_weights": false,
       "release_date": "2025-10-15",
@@ -1057,7 +1053,9 @@
       ],
       "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/byteplus/seed-1-6-250915",
       "on_powertokens": true,
-      "tags": []
+      "tags": [
+        "Multimodal input"
+      ]
     },
     {
       "id": "seed-1-6-flash-250715",
@@ -1066,11 +1064,24 @@
       "family": "Seed",
       "context": 256000,
       "max_output": 32000,
-      "tool_call": true,
-      "reasoning": false,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text",
-        "image"
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "image/webp",
+        "image/bmp",
+        "image/tiff",
+        "image/x-icon",
+        "image/x-icns",
+        "image/sgi",
+        "image/jp2",
+        "image/heic",
+        "video/mp4",
+        "video/x-msvideo",
+        "video/quicktime"
       ],
       "open_weights": false,
       "release_date": "2025-08-28",
@@ -1111,11 +1122,21 @@
       "family": "Seed",
       "context": 256000,
       "max_output": 64000,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text",
-        "image"
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "image/webp",
+        "image/bmp",
+        "image/tiff",
+        "image/x-icon",
+        "image/x-icns",
+        "image/sgi",
+        "image/jp2",
+        "image/heic"
       ],
       "open_weights": false,
       "release_date": "2025-12-28",
@@ -1155,12 +1176,24 @@
       "family": "Seed",
       "context": 256000,
       "max_output": 32000,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text",
-        "image",
-        "video"
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "image/webp",
+        "image/bmp",
+        "image/tiff",
+        "image/x-icon",
+        "image/x-icns",
+        "image/sgi",
+        "image/jp2",
+        "image/heic",
+        "video/mp4",
+        "video/x-msvideo",
+        "video/quicktime"
       ],
       "open_weights": false,
       "release_date": "2026-02-14",
@@ -1199,12 +1232,24 @@
       "family": "Seed",
       "context": 256000,
       "max_output": 32000,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text",
-        "image",
-        "video"
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "image/webp",
+        "image/bmp",
+        "image/tiff",
+        "image/x-icon",
+        "image/x-icns",
+        "image/sgi",
+        "image/jp2",
+        "image/heic",
+        "video/mp4",
+        "video/x-msvideo",
+        "video/quicktime"
       ],
       "open_weights": false,
       "release_date": "2026-02-14",
@@ -1245,12 +1290,24 @@
       "family": "Seed",
       "context": 256000,
       "max_output": 128000,
-      "tool_call": true,
-      "reasoning": true,
+      "tool_call": null,
+      "reasoning": null,
       "input_modalities": [
         "text",
-        "image",
-        "video"
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "image/webp",
+        "image/bmp",
+        "image/tiff",
+        "image/x-icon",
+        "image/x-icns",
+        "image/sgi",
+        "image/jp2",
+        "image/heic",
+        "video/mp4",
+        "video/x-msvideo",
+        "video/quicktime"
       ],
       "open_weights": false,
       "release_date": "2026-02-14",
