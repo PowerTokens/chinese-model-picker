@@ -1,27 +1,26 @@
 {
-  "generated": "2026-10-26",
+  "generated": "2026-11-02",
   "currency": "USD",
   "unit": "per 1M tokens",
   "sources": {
     "model_list": {
       "url": "https://docs.powertokens.ai/llms.txt",
-      "checked": "2026-10-26"
+      "checked": "2026-11-02"
     },
     "powertokens_prices": {
       "url": "https://powertokens.ai/pricing",
       "api": "https://powertokens.ai/api/model/pricing",
-      "checked": "2026-10-26"
+      "checked": "2026-11-02"
     },
     "capabilities": {
       "name": "models.dev",
       "url": "https://github.com/anomalyco/models.dev",
-      "commit": "3e81e67646528d907c9a5413888d6adfa1ccf647",
-      "commit_date": "2026-10-26",
-      "checked": "2026-10-26"
+      "commit": "e03d133e86080ee087f4dfcb1644d53202ae4725",
+      "commit_date": "2026-11-02",
+      "checked": "2026-11-02"
     }
   },
   "gaps": [
-    "minimax-m3.1-flash: listed in docs but not on the pricing endpoint; omitted",
     "dola-seed-2-1-turbo-260628: listed in docs but not on the pricing endpoint; omitted"
   ],
   "models": [
@@ -589,6 +588,51 @@
         "Agents",
         "Long context",
         "Multimodal input"
+      ]
+    },
+    {
+      "id": "MiniMax-M3.1-Flash",
+      "name": "MiniMax-M3.1-Flash",
+      "lab": "MiniMax",
+      "family": "MiniMax",
+      "context": 1000000,
+      "max_output": 512000,
+      "tool_call": null,
+      "reasoning": null,
+      "input_modalities": [
+        "text",
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "image/webp",
+        "video/mp4",
+        "video/x-msvideo",
+        "video/quicktime",
+        "video/x-matroska"
+      ],
+      "open_weights": false,
+      "release_date": "2026-09-27",
+      "description": "Frontier multimodal coding model with 1M context window and tunable thinking depth",
+      "models_dev_path": "models/minimax/MiniMax-M3.1-Flash-Preview.toml",
+      "pt_input": 0.15,
+      "pt_output": 0.6,
+      "pt_tiers": [
+        {
+          "from_tokens": 0,
+          "to_tokens": null,
+          "input": 0.15,
+          "output": 0.6,
+          "cache_price": 0.015,
+          "cache_hit_price": 0.015
+        }
+      ],
+      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/minimax/miniMax-M3.1-Flash",
+      "on_powertokens": true,
+      "tags": [
+        "Coding",
+        "Long context",
+        "Multimodal input",
+        "Fast"
       ]
     },
     {
