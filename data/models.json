@@ -1,26 +1,28 @@
 {
-  "generated": "2026-11-02",
+  "generated": "2026-11-09",
   "currency": "USD",
   "unit": "per 1M tokens",
   "sources": {
     "model_list": {
       "url": "https://docs.powertokens.ai/llms.txt",
-      "checked": "2026-11-02"
+      "checked": "2026-11-09"
     },
     "powertokens_prices": {
       "url": "https://powertokens.ai/pricing",
       "api": "https://powertokens.ai/api/model/pricing",
-      "checked": "2026-11-02"
+      "checked": "2026-11-09"
     },
     "capabilities": {
       "name": "models.dev",
       "url": "https://github.com/anomalyco/models.dev",
-      "commit": "e03d133e86080ee087f4dfcb1644d53202ae4725",
-      "commit_date": "2026-11-02",
-      "checked": "2026-11-02"
+      "commit": "5e430baece296c2514148e5ae7673948e52a6679",
+      "commit_date": "2026-11-09",
+      "checked": "2026-11-09"
     }
   },
   "gaps": [
+    "qwen3-coder-plus: listed in docs but not on the pricing endpoint; omitted",
+    "qwen3-max: listed in docs but not on the pricing endpoint; omitted",
     "dola-seed-2-1-turbo-260628: listed in docs but not on the pricing endpoint; omitted"
   ],
   "models": [
@@ -633,117 +635,6 @@
         "Long context",
         "Multimodal input",
         "Fast"
-      ]
-    },
-    {
-      "id": "qwen3-coder-plus",
-      "name": "Qwen3 Coder Plus",
-      "lab": "Alibaba",
-      "family": "Qwen",
-      "context": 1048576,
-      "max_output": 65536,
-      "tool_call": null,
-      "reasoning": null,
-      "input_modalities": [
-        "text"
-      ],
-      "open_weights": false,
-      "release_date": "2025-07-23",
-      "description": "Hosted Qwen coder for software agents, repo edits, and long-context code",
-      "models_dev_path": "models/alibaba/qwen3-coder-plus.toml",
-      "pt_input": 1,
-      "pt_output": 5,
-      "pt_tiers": [
-        {
-          "from_tokens": 0,
-          "to_tokens": 32000,
-          "input": 1,
-          "output": 5,
-          "cache_price": 0.2,
-          "cache_hit_price": 0.1
-        },
-        {
-          "from_tokens": 32000,
-          "to_tokens": 128000,
-          "input": 1.8,
-          "output": 9,
-          "cache_price": 0.36,
-          "cache_hit_price": 0.18
-        },
-        {
-          "from_tokens": 128000,
-          "to_tokens": 256000,
-          "input": 3,
-          "output": 15,
-          "cache_price": 0.6,
-          "cache_hit_price": 0.3
-        },
-        {
-          "from_tokens": 256000,
-          "to_tokens": 1000000,
-          "input": 6,
-          "output": 60,
-          "cache_price": 1.2,
-          "cache_hit_price": 0.6
-        }
-      ],
-      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/ali/qwen3-coder-plus",
-      "on_powertokens": true,
-      "tags": [
-        "Coding",
-        "Agents",
-        "Long context"
-      ]
-    },
-    {
-      "id": "qwen3-max",
-      "name": "Qwen3 Max",
-      "lab": "Alibaba",
-      "family": "Qwen",
-      "context": 262144,
-      "max_output": 65536,
-      "tool_call": null,
-      "reasoning": null,
-      "input_modalities": [
-        "text"
-      ],
-      "open_weights": false,
-      "release_date": "2025-09-23",
-      "description": "Flagship Qwen3 model for coding agents, complex reasoning, and tool use",
-      "models_dev_path": "models/alibaba/qwen3-max.toml",
-      "pt_input": 1.14,
-      "pt_output": 5.7,
-      "pt_tiers": [
-        {
-          "from_tokens": 0,
-          "to_tokens": 32000,
-          "input": 1.14,
-          "output": 5.7,
-          "cache_price": 0.228,
-          "cache_hit_price": 0.114
-        },
-        {
-          "from_tokens": 32000,
-          "to_tokens": 128000,
-          "input": 2.28,
-          "output": 11.4,
-          "cache_price": 0.456,
-          "cache_hit_price": 0.228
-        },
-        {
-          "from_tokens": 128000,
-          "to_tokens": 256000,
-          "input": 2.85,
-          "output": 14.25,
-          "cache_price": 0.57,
-          "cache_hit_price": 0.285
-        }
-      ],
-      "pt_docs": "https://docs.powertokens.ai/en/zmodelChat/ali/qwen3-max",
-      "on_powertokens": true,
-      "tags": [
-        "Coding",
-        "Agents"
       ]
     },
     {
